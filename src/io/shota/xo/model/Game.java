@@ -1,8 +1,6 @@
 package io.shota.xo.model;
 
-/**
- * Created by 1 on 25.11.2016.
- */
+
 public class Game {
 
     private static final String name = "XO";
