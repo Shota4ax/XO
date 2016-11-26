@@ -1,5 +1,7 @@
 package io.shota.xo.model;
 
+import io.shota.xo.main.model.Figure;
+import io.shota.xo.main.model.Player;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
