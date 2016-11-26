@@ -11,13 +11,13 @@ public class WinnerController {
 
     public Figure getWinner(final Field field){
         try {
-            for (int i = 0; i < field.getSize(); i++) {
+            for (int i = 0; i < 3; i++) {
 
                 if (check(field, new Point(i, 0), point -> new Point(point.x, point.y + 1))) {
                     return field.getFigure(new Point(i, 0));
                 }
             }
-            for (int i = 0; i < field.getSize(); i++) {
+            for (int i = 0; i < 3; i++) {
 
                 if (check(field, new Point(0, i), point -> new Point(point.x + 1, point.y))) {
                     return field.getFigure(new Point(0, i));
@@ -30,7 +30,7 @@ public class WinnerController {
             }
 
             if(check(field, new Point(0,2), point -> new Point(point.x+1,point.y-1))){
-                return field.getFigure(new Point(0, 0));
+                return field.getFigure(new Point(0, 2));
             }
 
         }catch(final InvalidPointException e){e.printStackTrace();};
@@ -46,16 +46,16 @@ public class WinnerController {
     private boolean check(final Field field, Point currentPoint, IPointGenerator pointGenerator){
         Figure currentFig;
         Figure nextFig;
-        Point nextPoint;
+        Point nextPoint = pointGenerator.next(currentPoint);
         try {
             currentFig = field.getFigure(currentPoint);
-            nextPoint = pointGenerator.next(currentPoint);
+
+            if(currentFig == null) {
+                return false;
+            }
             nextFig = field.getFigure(nextPoint);
         } catch (InvalidPointException e) {
             return true;
-        }
-        if(currentFig == null){
-            return false;
         }
 
 
