@@ -1,15 +1,18 @@
-package io.shota.xo.model;
+package io.shota.xo.main.model;
 
 
 public class Game {
 
-    private static final String name = "XO";
+    private final String name;
 
-    private Player[] players = new Player[2];
+    private final Player[] players ;
 
-    private Field field = new Field();
+    private final Field field ;
 
-    public Game(Player[] players, Field field) {
+    public Game(String name,
+                Player[] players,
+                Field field) {
+        this.name = name;
         this.players = players;
         this.field = field;
     }

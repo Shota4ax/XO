@@ -1,4 +1,4 @@
-package io.shota.xo.model;
+package io.shota.xo.main.model;
 
 
 public class Player {
