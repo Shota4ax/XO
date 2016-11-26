@@ -9,6 +9,11 @@ public class Game {
 
     private Field field = new Field();
 
+    public Game(Player[] players, Field field) {
+        this.players = players;
+        this.field = field;
+    }
+
     public String getName(){
         return name;
     }
